@@ -1,0 +1,14 @@
+﻿{
+  "nome": "Filé Mignon com Purê",
+  "descricao": "Filé mignon grelhado com purê de batatas",
+  "preco": 59.90,
+  "tempo_preparo": 20,
+  "ingredientes": [
+    {"nome": "filé mignon", "quantidade": 0.3, "unidade": "kg"},
+    {"nome": "batata", "quantidade": 0.2, "unidade": "kg"},
+    {"nome": "creme de leite", "quantidade": 0.05, "unidade": "litro"},
+    {"nome": "manteiga", "quantidade": 0.02, "unidade": "kg"}
+  ],
+  "categoria": "Carnes",
+  "disponivel": true
+}

@@ -1,0 +1,14 @@
+﻿{
+  "nome": "Lasanha à Bolonhesa",
+  "descricao": "Camadas de massa com carne moída e queijo derretido",
+  "preco": 42.90,
+  "tempo_preparo": 30,
+  "ingredientes": [
+    {"nome": "massa para lasanha", "quantidade": 0.2, "unidade": "kg"},
+    {"nome": "carne moída", "quantidade": 0.15, "unidade": "kg"},
+    {"nome": "molho de tomate", "quantidade": 0.1, "unidade": "litro"},
+    {"nome": "queijo muçarela", "quantidade": 0.1, "unidade": "kg"}
+  ],
+  "categoria": "Massas",
+  "disponivel": true
+}

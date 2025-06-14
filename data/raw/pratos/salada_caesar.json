@@ -1,0 +1,14 @@
+﻿{
+  "nome": "Salada Caesar",
+  "descricao": "Salada com molho caesar e croutons",
+  "preco": 28.90,
+  "tempo_preparo": 10,
+  "ingredientes": [
+    {"nome": "alface romana", "quantidade": 0.15, "unidade": "kg"},
+    {"nome": "croutons", "quantidade": 0.05, "unidade": "kg"},
+    {"nome": "queijo parmesão", "quantidade": 0.03, "unidade": "kg"},
+    {"nome": "molho caesar", "quantidade": 0.05, "unidade": "litro"}
+  ],
+  "categoria": "Saladas",
+  "disponivel": true
+}

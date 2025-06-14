@@ -1,0 +1,25 @@
+﻿{
+  "pratos": [
+    {
+      "nome": "Lasanha à Bolonhesa",
+      "arquivo": "lasanha.json"
+    },
+    {
+      "nome": "Risoto de Cogumelos",
+      "arquivo": "risoto.json"
+    },
+    {
+      "nome": "Filé Mignon com Purê",
+      "arquivo": "file_mignon.json"
+    },
+    {
+      "nome": "Salada Caesar",
+      "arquivo": "salada_caesar.json"
+    },
+    {
+      "nome": "Tiramisu",
+      "arquivo": "tiramisu.json"
+    }
+  ],
+  "atualizado_em": "$(Get-Date -Format 'yyyy-MM-dd')"
+}

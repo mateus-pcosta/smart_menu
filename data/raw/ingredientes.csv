@@ -1,0 +1,20 @@
+﻿nome,quantidade,unidade,estoque_minimo,fornecedor
+massa para lasanha,5,kg,2,Fornecedor A
+carne moída,10,kg,3,Fornecedor B
+molho de tomate,8,litro,2,Fornecedor A
+queijo muçarela,6,kg,2,Fornecedor C
+arroz arbóreo,7,kg,3,Fornecedor D
+cogumelos paris,4,kg,1,Fornecedor E
+caldo de legumes,10,litro,3,Fornecedor A
+queijo parmesão,3,kg,1,Fornecedor C
+filé mignon,8,kg,2,Fornecedor F
+batata,15,kg,5,Fornecedor G
+creme de leite,5,litro,2,Fornecedor H
+manteiga,4,kg,1,Fornecedor I
+alface romana,3,kg,1,Fornecedor J
+croutons,2,kg,1,Fornecedor K
+molho caesar,3,litro,1,Fornecedor L
+biscoito champanhe,2,kg,1,Fornecedor M
+café expresso,5,litro,1,Fornecedor N
+mascarpone,3,kg,1,Fornecedor O
+cacau em pó,2,kg,1,Fornecedor P

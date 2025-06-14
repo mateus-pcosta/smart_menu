@@ -1,0 +1,14 @@
+﻿{
+  "nome": "Risoto de Cogumelos",
+  "descricao": "Arroz arbóreo cremoso com cogumelos frescos",
+  "preco": 38.50,
+  "tempo_preparo": 25,
+  "ingredientes": [
+    {"nome": "arroz arbóreo", "quantidade": 0.15, "unidade": "kg"},
+    {"nome": "cogumelos paris", "quantidade": 0.1, "unidade": "kg"},
+    {"nome": "caldo de legumes", "quantidade": 0.5, "unidade": "litro"},
+    {"nome": "queijo parmesão", "quantidade": 0.05, "unidade": "kg"}
+  ],
+  "categoria": "Entradas",
+  "disponivel": true
+}

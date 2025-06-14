@@ -1,0 +1,14 @@
+﻿{
+  "nome": "Tiramisu",
+  "descricao": "Sobremesa italiana clássica",
+  "preco": 22.50,
+  "tempo_preparo": 15,
+  "ingredientes": [
+    {"nome": "biscoito champanhe", "quantidade": 0.1, "unidade": "kg"},
+    {"nome": "café expresso", "quantidade": 0.1, "unidade": "litro"},
+    {"nome": "mascarpone", "quantidade": 0.2, "unidade": "kg"},
+    {"nome": "cacau em pó", "quantidade": 0.02, "unidade": "kg"}
+  ],
+  "categoria": "Sobremesas",
+  "disponivel": true
+}
