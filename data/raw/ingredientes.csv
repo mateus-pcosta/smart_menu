@@ -1,4 +1,4 @@
-﻿nome,quantidade,unidade,estoque_minimo,fornecedor
+nome,quantidade,unidade,estoque_minimo,fornecedor
 massa para lasanha,5,kg,2,Fornecedor A
 carne moída,10,kg,3,Fornecedor B
 molho de tomate,8,litro,2,Fornecedor A
