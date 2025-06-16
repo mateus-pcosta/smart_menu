@@ -96,19 +96,17 @@ def gerenciar_pedidos():
             
             st.write(f"**Total: R$ {total:.2f}**")
             
-            # Atualiza os valores da session_state quando os inputs mudam
+            # Atualiza os valores da session_state
             st.session_state.mesa = st.number_input(
                 "Número da Mesa:", 
                 min_value=1, 
                 max_value=50,
-                value=st.session_state.mesa,
-                key="mesa_input"
+                value=st.session_state.mesa
             )
             
             st.session_state.observacoes = st.text_area(
                 "Observações:", 
-                value=st.session_state.observacoes,
-                key="obs_input"
+                value=st.session_state.observacoes
             )
             
             col1, col2 = st.columns(2)
@@ -121,11 +119,8 @@ def gerenciar_pedidos():
                             observacoes=st.session_state.observacoes
                         )
                         st.success(f"Pedido #{pedido_id} criado com sucesso!")
-                        
-                        # Limpa apenas os itens, mantém mesa e observações
                         st.session_state.pedido_atual = []
                         st.rerun()
-                        
                     except Exception as e:
                         st.error(f"Erro ao criar pedido: {str(e)}")
             
@@ -140,7 +135,6 @@ def gerenciar_pedidos():
     with tab2:
         st.subheader("🔄 Pedidos em Andamento")
         
-        # Carrega todos os pedidos exceto os entregues
         try:
             pedidos_andamento = listar_pedidos_por_status().query("status != 'entregue'")
             
@@ -155,33 +149,27 @@ def gerenciar_pedidos():
                         
                         with col2:
                             st.write("**Itens:**")
-                            if isinstance(pedido['pratos'], str):
-                                try:
-                                    itens = json.loads(pedido['pratos'].replace("'", '"'))
-                                    for item in itens:
-                                        st.write(f"- {item.get('prato', 'Item sem nome')}")
-                                except json.JSONDecodeError:
-                                    st.write("- Formato de itens inválido")
-                            else:
-                                for item in pedido['pratos']:
-                                    st.write(f"- {item.get('prato', 'Item sem nome')}")
-                    
-                        st.write("**Alterar Status:**")
-                        col_preparo, col_pronto, col_entregue = st.columns(3)
+                            # Garante que temos uma lista de itens
+                            itens = pedido['pratos'] if isinstance(pedido['pratos'], list) else []
+                            for item in itens:
+                                st.write(f"- {item.get('prato', 'Item sem nome')} (R$ {item.get('preco', 0):.2f})")
                         
-                        with col_preparo:
+                        st.write("**Alterar Status:**")
+                        col1, col2, col3 = st.columns(3)
+                        
+                        with col1:
                             if pedido['status'] == 'recebido':
                                 if st.button("⏳ Iniciar Preparo", key=f"preparar_{pedido['id_pedido']}"):
                                     atualizar_status_pedido(pedido['id_pedido'], "preparo")
                                     st.rerun()
                         
-                        with col_pronto:
+                        with col2:
                             if pedido['status'] == 'preparo':
                                 if st.button("✅ Pronto", key=f"pronto_{pedido['id_pedido']}"):
                                     atualizar_status_pedido(pedido['id_pedido'], "pronto")
                                     st.rerun()
                         
-                        with col_entregue:
+                        with col3:
                             if pedido['status'] == 'pronto':
                                 if st.button("🛎️ Entregue", key=f"entregue_{pedido['id_pedido']}"):
                                     atualizar_status_pedido(pedido['id_pedido'], "entregue")
@@ -191,12 +179,24 @@ def gerenciar_pedidos():
         
         except Exception as e:
             st.error(f"Erro ao carregar pedidos: {str(e)}")
-            st.write("Detalhes técnicos para depuração:")
-            st.exception(e)
     
     with tab3:
-        st.write("Histórico de pedidos...")
-
+        st.subheader("📜 Histórico de Pedidos")
+        pedidos_entregues = listar_pedidos_por_status("entregue")
+        
+        if not pedidos_entregues.empty:
+            for _, pedido in pedidos_entregues.iterrows():
+                with st.expander(f"✅ Pedido #{pedido['id_pedido']} - Mesa {pedido['mesa']} ({pedido['data_criacao'][:10]})"):
+                    st.write(f"**Itens:**")
+                    itens = pedido['pratos'] if isinstance(pedido['pratos'], list) else []
+                    for item in itens:
+                        st.write(f"- {item.get('prato', 'Item sem nome')} (R$ {item.get('preco', 0):.2f})")
+                    
+                    if pedido['observacoes'] and str(pedido['observacoes']) != 'nan':
+                        st.write(f"**Observações:** {pedido['observacoes']}")
+        else:
+            st.info("Nenhum pedido finalizado ainda.")
+            
 def normalizar_item_pedido(item):
     if isinstance(item, str):
         try:
